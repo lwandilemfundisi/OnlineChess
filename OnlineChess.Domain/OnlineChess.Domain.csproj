@@ -5,6 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\PieceNameType.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\PieceNameType.xml" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="XFrame.AggregateEventPublisher" Version="7.0.1" />
 		<PackageReference Include="XFrame.AggregateEventPublisher.Extensions" Version="7.0.1" />

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ValueObjects>
+	<ValueObject>
+		<Code>Pawn</Code>
+		<Text>Pawn</Text>
+		<Image></Image>
+	</ValueObject>
+	<ValueObject>
+		<Code>King</Code>
+		<Text>King</Text>
+		<Image></Image>
+	</ValueObject>
+	<ValueObject>
+		<Code>Queen</Code>
+		<Text>Queen</Text>
+		<Image></Image>
+	</ValueObject>
+	<ValueObject>
+		<Code>Bishop</Code>
+		<Text>Bishop</Text>
+		<Image></Image>
+	</ValueObject>
+	<ValueObject>
+		<Code>Night</Code>
+		<Text>Night</Text>
+		<Image></Image>
+	</ValueObject>
+	<ValueObject>
+		<Code>Rook</Code>
+		<Text>Rook</Text>
+		<Image></Image>
+	</ValueObject>
+</ValueObjects>
