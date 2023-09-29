@@ -23,5 +23,9 @@ namespace OnlineChess.Domain.DomainModel.OnlineChessModel
         #region Properties
 
         #endregion
+
+        #region Methods
+
+        #endregion
     }
 }
