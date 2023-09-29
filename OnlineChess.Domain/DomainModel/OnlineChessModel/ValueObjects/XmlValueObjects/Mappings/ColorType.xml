@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ValueObjects>
+	<ValueObject>
+		<Code>Black</Code>
+		<Text>Black</Text>
+		<YAxisDirectionIsUp>false</YAxisDirectionIsUp>
+	</ValueObject>
+	<ValueObject>
+		<Code>White</Code>
+		<Text>White</Text>
+		<YAxisDirectionIsUp>true</YAxisDirectionIsUp>
+	</ValueObject>
+</ValueObjects>

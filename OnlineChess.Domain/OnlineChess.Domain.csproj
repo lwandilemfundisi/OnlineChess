@@ -6,10 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\ColorType.xml" />
+    <None Remove="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\GameStatusType.xml" />
     <None Remove="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\PieceNameType.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\GameStatusType.xml" />
+    <EmbeddedResource Include="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\ColorType.xml" />
     <EmbeddedResource Include="DomainModel\OnlineChessModel\ValueObjects\XmlValueObjects\Mappings\PieceNameType.xml" />
   </ItemGroup>
 

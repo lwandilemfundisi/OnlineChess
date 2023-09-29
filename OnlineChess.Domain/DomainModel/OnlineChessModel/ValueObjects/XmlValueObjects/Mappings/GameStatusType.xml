@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ValueObjects>
+	<ValueObject>
+		<Code>Ready</Code>
+		<Text>Game is ready!</Text>
+	</ValueObject>
+	<ValueObject>
+		<Code>InProgress</Code>
+		<Text>Game is in progress!</Text>
+	</ValueObject>
+	<ValueObject>
+		<Code>GameOver</Code>
+		<Text>Game is over!</Text>
+	</ValueObject>
+</ValueObjects>
