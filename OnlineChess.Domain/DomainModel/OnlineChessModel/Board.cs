@@ -1,6 +1,8 @@
 ﻿using OnlineChess.Domain.DomainModel.OnlineChessModel.Entities;
+using OnlineChess.Domain.DomainModel.OnlineChessModel.Events;
 using OnlineChess.Domain.Extensions;
 using XFrame.Aggregates;
+using XFrame.Specifications.Extensions;
 
 namespace OnlineChess.Domain.DomainModel.OnlineChessModel
 {
@@ -41,6 +43,13 @@ namespace OnlineChess.Domain.DomainModel.OnlineChessModel
         #endregion
 
         #region Methods
+
+        internal void CreateBoard(IReadOnlyList<Block> blocks)
+        {
+            AggregateSpecifications.AggregateIsNew.ThrowDomainErrorIfNotSatisfied(this);
+            Blocks = blocks.ToList();
+            Emit(new CreatedBoardEvent(blocks));
+        }
 
         #endregion
     }

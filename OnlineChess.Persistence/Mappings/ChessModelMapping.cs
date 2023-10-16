@@ -69,8 +69,8 @@ namespace OnlineChess.Persistence.Mappings
                 .WithMany(c => c.Blocks);
 
             modelBuilder
-                .Entity<Piece>()
-                .HasOne<Block>();
+                .Entity<Block>()
+                .HasOne(c => c.Piece);
 
             modelBuilder
                 .Entity<Board>()

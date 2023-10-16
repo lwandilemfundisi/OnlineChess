@@ -11,6 +11,22 @@ namespace OnlineChess.Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Piece",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PieceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PieceColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    XCoordinate = table.Column<long>(type: "bigint", nullable: false),
+                    YCoordinate = table.Column<long>(type: "bigint", nullable: false),
+                    HasMovedSinceStart = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Piece", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Player",
                 columns: table => new
                 {
@@ -65,27 +81,10 @@ namespace OnlineChess.Persistence.Migrations
                         column: x => x.BoardId,
                         principalTable: "Board",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Piece",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PieceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PieceColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    XCoordinate = table.Column<long>(type: "bigint", nullable: false),
-                    YCoordinate = table.Column<long>(type: "bigint", nullable: false),
-                    HasMovedSinceStart = table.Column<bool>(type: "bit", nullable: false),
-                    BlockId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Piece", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Piece_Block_BlockId",
-                        column: x => x.BlockId,
-                        principalTable: "Block",
+                        name: "FK_Block_Piece_PieceId",
+                        column: x => x.PieceId,
+                        principalTable: "Piece",
                         principalColumn: "Id");
                 });
 
@@ -108,42 +107,22 @@ namespace OnlineChess.Persistence.Migrations
                 name: "IX_Board_Player2Id",
                 table: "Board",
                 column: "Player2Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Piece_BlockId",
-                table: "Piece",
-                column: "BlockId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Block_Piece_PieceId",
-                table: "Block",
-                column: "PieceId",
-                principalTable: "Piece",
-                principalColumn: "Id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Block_Board_BoardId",
-                table: "Block");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Block_Piece_PieceId",
-                table: "Block");
+            migrationBuilder.DropTable(
+                name: "Block");
 
             migrationBuilder.DropTable(
                 name: "Board");
 
             migrationBuilder.DropTable(
-                name: "Player");
-
-            migrationBuilder.DropTable(
                 name: "Piece");
 
             migrationBuilder.DropTable(
-                name: "Block");
+                name: "Player");
         }
     }
 }

@@ -5,7 +5,7 @@ using XFrame.ValueObjects.SingleValueObjects;
 namespace OnlineChess.Domain.DomainModel.OnlineChessModel.Entities
 {
     [JsonConverter(typeof(SingleValueObjectConverter))]
-    public class PieceId : Identity<BlockId>
+    public class PieceId : Identity<PieceId>
     {
         #region Constructors
 

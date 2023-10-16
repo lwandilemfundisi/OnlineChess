@@ -11,7 +11,7 @@ using OnlineChess.Persistence;
 namespace OnlineChess.Persistence.Migrations
 {
     [DbContext(typeof(ChessContext))]
-    [Migration("20231016183917_Init")]
+    [Migration("20231016193517_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -81,9 +81,6 @@ namespace OnlineChess.Persistence.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("BlockId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<bool>("HasMovedSinceStart")
                         .HasColumnType("bit");
 
@@ -100,8 +97,6 @@ namespace OnlineChess.Persistence.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BlockId");
 
                     b.ToTable("Piece");
                 });
@@ -145,13 +140,6 @@ namespace OnlineChess.Persistence.Migrations
                         .HasForeignKey("PieceId");
 
                     b.Navigation("Piece");
-                });
-
-            modelBuilder.Entity("OnlineChess.Domain.DomainModel.OnlineChessModel.Entities.Piece", b =>
-                {
-                    b.HasOne("OnlineChess.Domain.DomainModel.OnlineChessModel.Entities.Block", null)
-                        .WithMany()
-                        .HasForeignKey("BlockId");
                 });
 
             modelBuilder.Entity("OnlineChess.Domain.DomainModel.OnlineChessModel.Board", b =>
